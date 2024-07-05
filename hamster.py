@@ -17,18 +17,35 @@ init(autoreset=True)
 auto_claim_daily_combo = None
 combo_list = []
 
-# Since all inputs are 'n', we skip further user prompts and conditional blocks
+# Semua variabel diatur ke nilai default 'n' atau nilai default lainnya
+auto_upgrade_passive = 'n'
 max_price = None
-cipher_text = None
+cek_task_list = 'n'
+ask_cipher = 'n'
+cipher_text = ''
+auto_claim_daily_combo = 'n'
 combo_list = []
 
-print("Auto Upgrade Mining (Passive Earn):", auto_upgrade_passive)
-print("Max Price:", max_price)
-print("Enable Cek Task:", cek_task_list)
-print("Auto Claim Cipher Daily:", ask_cipher)
-print("Cipher Text:", cipher_text)
-print("Auto Claim Daily Combo:", auto_claim_daily_combo)
-print("Combo List:", combo_list)
+# Ini adalah simulasi seolah-olah user memilih 'n' untuk setiap input
+print("Auto Upgrade Mining (Passive Earn)? (default n) (y/n): n")
+print("Enable Cek Task? (default n) (y/n): n")
+print("Auto Claim Cipher Daily / Sandi Harian? (default n) (y/n): n")
+print("Auto Claim Daily Combo? (default n) (y/n): n")
+
+# Optional checks and assignments if auto_upgrade_passive was 'y'
+if auto_upgrade_passive == 'y':
+    max_price = 1500000  # default value if 'y' was chosen
+
+# Optional checks and assignments if ask_cipher was 'y'
+if ask_cipher == 'y':
+    cipher_text = 'default_cipher'  # default cipher text
+
+# Optional assignments for auto_claim_daily_combo
+if auto_claim_daily_combo == 'y':
+    for i in range(1, 4):  # Asumsi ada 3 combo
+        combo_list.append(f"default_combo_{i}") 
+# default combo id
+
 
 
 def load_tokens(filename):
@@ -701,33 +718,6 @@ def main():
 #     else:
 #         print("Masukkan 'y' atau 'n'.")
 
-# Semua variabel diatur ke nilai default 'n' atau nilai default lainnya
-auto_upgrade_passive = 'n'
-max_price = None
-cek_task_list = 'n'
-ask_cipher = 'n'
-cipher_text = ''
-auto_claim_daily_combo = 'n'
-combo_list = []
-
-# Ini adalah simulasi seolah-olah user memilih 'n' untuk setiap input
-print("Auto Upgrade Mining (Passive Earn)? (default n) (y/n): n")
-print("Enable Cek Task? (default n) (y/n): n")
-print("Auto Claim Cipher Daily / Sandi Harian? (default n) (y/n): n")
-print("Auto Claim Daily Combo? (default n) (y/n): n")
-
-# Optional checks and assignments if auto_upgrade_passive was 'y'
-if auto_upgrade_passive == 'y':
-    max_price = 1500000  # default value if 'y' was chosen
-
-# Optional checks and assignments if ask_cipher was 'y'
-if ask_cipher == 'y':
-    cipher_text = 'default_cipher'  # default cipher text
-
-# Optional assignments for auto_claim_daily_combo
-if auto_claim_daily_combo == 'y':
-    for i in range(1, 4):  # Asumsi ada 3 combo
-        combo_list.append(f"default_combo_{i}")  # default combo id
 
 def print_welcome_message():
     print(r"""
