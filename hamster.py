@@ -701,51 +701,33 @@ def main():
 #     else:
 #         print("Masukkan 'y' atau 'n'.")
 
-while True:
-    auto_upgrade_passive = input("Auto Upgrade Mining (Passive Earn)? (default n) (y/n): ").strip().lower()
-    if auto_upgrade_passive in ['y', 'n', '']:
-        auto_upgrade_passive = auto_upgrade_passive or 'n'
-        break
-    else:
-        print("Masukkan 'y' atau 'n'.")
+# Semua variabel diatur ke nilai default 'n' atau nilai default lainnya
+auto_upgrade_passive = 'n'
+max_price = None
+cek_task_list = 'n'
+ask_cipher = 'n'
+cipher_text = ''
+auto_claim_daily_combo = 'n'
+combo_list = []
 
+# Ini adalah simulasi seolah-olah user memilih 'n' untuk setiap input
+print("Auto Upgrade Mining (Passive Earn)? (default n) (y/n): n")
+print("Enable Cek Task? (default n) (y/n): n")
+print("Auto Claim Cipher Daily / Sandi Harian? (default n) (y/n): n")
+print("Auto Claim Daily Combo? (default n) (y/n): n")
+
+# Optional checks and assignments if auto_upgrade_passive was 'y'
 if auto_upgrade_passive == 'y':
-    while True:
-        max_price = input("Masukkan harga maksimum upgrade ? (contoh 1500000): ")
-        if max_price:
-            max_price = int(max_price)
-            break
-        else:
-            print("Masukkan harga maksimum upgrade blok!.")
+    max_price = 1500000  # default value if 'y' was chosen
 
-while True:
-    cek_task_list = input("Enable Cek Task? (default n) (y/n): ").strip().lower()
-    if cek_task_list in ['y', 'n', '']:
-        cek_task_list = cek_task_list or 'n'
-        break
-    else:
-        print("Masukkan 'y' atau 'n'.")
-
-while True:
-    ask_cipher = input("Auto Claim Cipher Daily / Sandi Harian? (default n) (y/n): ").strip().lower()
-    if ask_cipher in ['y', 'n', '']:
-        ask_cipher = ask_cipher or 'n'
-        break
-    else:
-        print("Masukkan 'y' atau 'n'.")
-
+# Optional checks and assignments if ask_cipher was 'y'
 if ask_cipher == 'y':
-    while True:
-        cipher_text = input("Masukkan cipher nya / sandi harian : ")
-        if cipher_text:
-            break
-        else:
-            print("Masukkan sandi harian blok!.")
-auto_claim_daily_combo = input("Auto Claim Daily Combo? (default n) (y/n): ").strip().lower() or 'n'
+    cipher_text = 'default_cipher'  # default cipher text
+
+# Optional assignments for auto_claim_daily_combo
 if auto_claim_daily_combo == 'y':
     for i in range(1, 4):  # Asumsi ada 3 combo
-        combo = input(f"Masukkan id combo {i}: ")
-        combo_list.append(combo)
+        combo_list.append(f"default_combo_{i}")  # default combo id
 
 def print_welcome_message():
     print(r"""
